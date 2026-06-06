@@ -477,7 +477,8 @@
       background: var(--c-float);
     }
     .asl-letter:focus-visible { outline: 2px solid var(--c-rose); outline-offset: 3px; }
-    .asl-letter .sign { font-size: 1.3rem; line-height: 1; }
+    .asl-letter .sign { display:block; line-height:1; }
+    .asl-letter .sign svg { width:52px; height:62px; display:block; }
     .asl-letter .letter {
       font-size: 0.55rem;
       font-weight: 700;
@@ -774,40 +775,16 @@
         </a>
       </div>
 
-      <!-- ASL Alphabet Visual -->
+      <!-- ASL Alphabet Chart -->
       <div>
-        <p style="font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-rose); font-weight: 700; margin-bottom: 1rem;">ASL Fingerspelling Alphabet</p>
-        <div class="asl-alphabet" role="list" aria-label="ASL fingerspelling alphabet">
-          <!-- A-Z with hand sign emojis as a visual reference -->
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Closed fist, thumb to side"><span class="sign">🤙</span><span class="letter">A</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Flat hand, thumb folded across"><span class="sign">🖐</span><span class="letter">B</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Hand curved like gripping a can"><span class="sign">👌</span><span class="letter">C</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index up, others circle the thumb"><span class="sign">👆</span><span class="letter">D</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="All fingers bent, thumb tucked under"><span class="sign">✋</span><span class="letter">E</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; thumb touch, 3 fingers up"><span class="sign">🤟</span><span class="letter">F</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; thumb point sideways"><span class="sign">👍</span><span class="letter">G</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; middle point sideways together"><span class="sign">🤞</span><span class="letter">H</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Pinky extended, others in a fist"><span class="sign">🤙</span><span class="letter">I</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Like I — pinky traces a J in the air"><span class="sign">🤙</span><span class="letter">J</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; middle up, thumb between them"><span class="sign">✊</span><span class="letter">K</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index up, thumb out — forms an L"><span class="sign">👈</span><span class="letter">L</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Three fingers folded over thumb"><span class="sign">🤙</span><span class="letter">M</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Two fingers folded over thumb"><span class="sign">✌️</span><span class="letter">N</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="All fingers curve to form an O"><span class="sign">👊</span><span class="letter">O</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Like K, rotated to point downward"><span class="sign">🖖</span><span class="letter">P</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; thumb pointing downward"><span class="sign">👋</span><span class="letter">Q</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; middle fingers crossed"><span class="sign">🤙</span><span class="letter">R</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Fist, thumb wrapped over fingers"><span class="sign">✌️</span><span class="letter">S</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Fist, thumb between index &amp; middle"><span class="sign">🤞</span><span class="letter">T</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; middle up together"><span class="sign">🖖</span><span class="letter">U</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index &amp; middle spread in a V"><span class="sign">✌️</span><span class="letter">V</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index, middle &amp; ring fingers up"><span class="sign">🤟</span><span class="letter">W</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index finger bent into a hook"><span class="sign">🤞</span><span class="letter">X</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Thumb &amp; pinky out — shaka shape"><span class="sign">🤙</span><span class="letter">Y</span></div>
-          <div class="asl-letter" role="listitem" tabindex="0" data-desc="Index finger traces a Z in the air"><span class="sign">👆</span><span class="letter">Z</span></div>
-        </div>
-        <p style="color:var(--c-muted);font-size:0.95rem;margin-top:1.1rem;line-height:1.6;">
-          💡 Hover over any letter to see an explanation of its handshape.
+        <p style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-rose);font-weight:700;margin-bottom:1rem;">ASL Fingerspelling Alphabet</p>
+        <img
+          src="https://deafchildren.org/wp-content/uploads/2019/06/ASL-Alphabet-ASDC-web.jpg"
+          alt="ASL Fingerspelling Alphabet chart showing hand signs for all 26 letters, provided by the American Society for Deaf Children"
+          style="width:100%;border-radius:16px;border:1px solid rgba(232,80,122,0.2);box-shadow:0 8px 32px rgba(0,0,0,0.4);display:block;"
+        />
+        <p style="color:var(--c-muted);font-size:0.75rem;margin-top:0.75rem;line-height:1.6;">
+          Chart courtesy of the <a href="https://deafchildren.org" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">American Society for Deaf Children</a> — free for educational use.
         </p>
       </div>
     </div>
@@ -1011,6 +988,7 @@
       </nav>
     </div>
   </footer>
+
 
 </body>
 </html>

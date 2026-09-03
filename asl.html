@@ -351,6 +351,26 @@
 
     .asl-content .section-label { color: var(--c-rose); }
 
+    /* ── Video Library ── */
+    .video-embed {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(232,80,122,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      background: var(--c-elevated);
+    }
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     /* ── Why Us ── */
     .why-grid {
       display: grid;
@@ -494,6 +514,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="#asl">Learn ASL</a></li>
         <li><a href="#asl-resources">Resources</a></li>
+        <li><a href="#videos">Videos</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -701,6 +722,25 @@
       </p>
     </div>
 
+  </section>
+
+  <!-- ── ASL VIDEO LIBRARY ── -->
+  <section id="videos" aria-labelledby="videos-heading">
+    <div class="section-label" style="color: var(--c-rose);">Watch &amp; Learn</div>
+    <h2 class="section-title" id="videos-heading">ASL Video Lessons</h2>
+    <p class="section-desc">Learn directly from Bill Vicars, a respected ASL instructor and founder of Lifeprint / ASL University. Browse his library of lessons and vocabulary videos right here.</p>
+    <div class="video-embed">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=UUvd8SHzSp07_U55qFI0-dDA"
+        title="Bill Vicars ASL video library on YouTube"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p style="color:var(--c-muted);font-size:0.75rem;margin-top:0.75rem;line-height:1.6;">
+      Videos courtesy of <a href="https://www.youtube.com/billvicars" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">Bill Vicars<span class="sr-only"> (opens in a new tab)</span></a> on YouTube.
+    </p>
   </section>
 
   <!-- ── WHY US ── -->

@@ -26,6 +26,34 @@
 
     html { scroll-behavior: smooth; }
 
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 1000;
+      background: var(--c-teal);
+      color: #07091A;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -85,6 +113,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    .logo-text:focus-visible { outline: 2px solid var(--c-teal); outline-offset: 4px; border-radius: 3px; }
 
     .nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
     .nav-links a {
@@ -560,6 +589,8 @@
 </head>
 <body class="bg-canvas">
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ── NAV ── -->
   <nav aria-label="Main navigation">
     <div class="nav-inner">
@@ -574,6 +605,8 @@
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
   </nav>
+
+  <main id="main-content">
 
   <!-- ── HERO ── -->
   <header class="hero" role="banner">
@@ -625,9 +658,9 @@
           <li><span class="dot teal" aria-hidden="true"></span>Software troubleshooting &amp; updates</li>
           <li><span class="dot teal" aria-hidden="true"></span>Cybersecurity basics &amp; data safety</li>
         </ul>
-        <a href="tech-support.html" class="card-cta teal" aria-label="Get tech support from SiboSolutions">
+        <a href="tech-support.html" class="card-cta teal">
           Get Tech Support
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </article>
 
@@ -650,9 +683,9 @@
           <li><span class="dot rose" aria-hidden="true"></span>Deaf culture awareness &amp; education</li>
           <li><span class="dot rose" aria-hidden="true"></span>Accessibility consulting</li>
         </ul>
-        <a href="asl.html" class="card-cta rose" aria-label="Explore ASL learning resources">
+        <a href="asl.html" class="card-cta rose">
           Explore ASL Resources
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </article>
 
@@ -700,6 +733,8 @@
       </a>
     </div>
   </div>
+
+  </main>
 
   <!-- ── FOOTER ── -->
   <footer role="contentinfo">

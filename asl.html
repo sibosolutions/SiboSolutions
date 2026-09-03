@@ -26,6 +26,34 @@
 
     html { scroll-behavior: smooth; }
 
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 1000;
+      background: var(--c-rose);
+      color: #07091A;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -86,6 +114,7 @@
       background-clip: text;
       text-decoration: none;
     }
+    .logo-text:focus-visible { outline: 2px solid var(--c-rose); outline-offset: 4px; border-radius: 3px; }
 
     .nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
     .nav-links a {
@@ -455,6 +484,8 @@
 </head>
 <body class="bg-canvas">
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ── NAV ── -->
   <nav aria-label="Main navigation">
     <div class="nav-inner">
@@ -469,6 +500,8 @@
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
   </nav>
+
+  <main id="main-content">
 
   <!-- ── HERO ── -->
   <header class="hero" role="banner">
@@ -505,9 +538,9 @@
           <li><span class="dot" aria-hidden="true"></span>Resources for all ages and skill levels</li>
           <li><span class="dot" aria-hidden="true"></span>Built with Deaf community input</li>
         </ul>
-        <a href="#contact" class="card-cta" style="display: inline-flex;" aria-label="Start your ASL learning journey">
+        <a href="#contact" class="card-cta" style="display: inline-flex;">
           Start Your ASL Journey
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
@@ -520,7 +553,7 @@
           style="width:100%;border-radius:16px;border:1px solid rgba(232,80,122,0.2);box-shadow:0 8px 32px rgba(0,0,0,0.4);display:block;"
         />
         <p style="color:var(--c-muted);font-size:0.75rem;margin-top:0.75rem;line-height:1.6;">
-          Chart courtesy of the <a href="https://deafchildren.org" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">American Society for Deaf Children</a> — free for educational use.
+          Chart courtesy of the <a href="https://deafchildren.org" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">American Society for Deaf Children<span class="sr-only"> (opens in a new tab)</span></a> — free for educational use.
         </p>
       </div>
     </div>
@@ -549,25 +582,25 @@
 
           <div style="background:var(--c-surface);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.25rem 1.5rem;">
             <p style="margin:0 0 0.25rem;font-weight:700;font-size:0.95rem;color:var(--c-text);">Hands &amp; Voices</p>
-            <a href="https://handsandvoices.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">handsandvoices.org</a>
+            <a href="https://handsandvoices.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">handsandvoices.org<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">A nationwide, parent-driven nonprofit supporting families of children who are deaf or hard of hearing. Non-biased about communication choices — supports families who sign, use spoken language, or both.</p>
           </div>
 
           <div style="background:var(--c-surface);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.25rem 1.5rem;">
             <p style="margin:0 0 0.25rem;font-weight:700;font-size:0.95rem;color:var(--c-text);">My Deaf Child</p>
-            <a href="https://mydeafchild.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">mydeafchild.org</a>
+            <a href="https://mydeafchild.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">mydeafchild.org<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">Created by a parent of a deaf child, this site helps families get answers, access resources, and connect with a community that understands their needs.</p>
           </div>
 
           <div style="background:var(--c-surface);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.25rem 1.5rem;">
             <p style="margin:0 0 0.25rem;font-weight:700;font-size:0.95rem;color:var(--c-text);">American Society for Deaf Children (ASDC)</p>
-            <a href="https://deafchildren.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">deafchildren.org</a>
+            <a href="https://deafchildren.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">deafchildren.org<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">Offers ASL classes at beginner, intermediate, and advanced levels, plus deaf mentor programs and ASL stories for families. Resources available in English and Spanish.</p>
           </div>
 
           <div style="background:var(--c-surface);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.25rem 1.5rem;">
             <p style="margin:0 0 0.25rem;font-weight:700;font-size:0.95rem;color:var(--c-text);">National Association of the Deaf (NAD)</p>
-            <a href="https://nad.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">nad.org</a>
+            <a href="https://nad.org" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">nad.org<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">If your child is identified as deaf or hard of hearing, you can request ASL instruction through your child's early intervention system — specifically designed to support families in this way.</p>
           </div>
 
@@ -584,7 +617,7 @@
               <p style="margin:0;font-weight:700;font-size:0.95rem;color:var(--c-text);">Sign It! ASL</p>
               <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,201,167,0.12);color:var(--c-teal);padding:0.15rem 0.55rem;border-radius:100px;">FREE</span>
             </div>
-            <a href="https://mydeafchild.org/learn-asl" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">mydeafchild.org/learn-asl</a>
+            <a href="https://mydeafchild.org/learn-asl" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">mydeafchild.org/learn-asl<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">Online, self-paced ASL course for parents. Free to parents of children 36 months or younger who qualify. Covers conversational ASL, grammar, syntax, and Deaf culture.</p>
           </div>
 
@@ -593,13 +626,13 @@
               <p style="margin:0;font-weight:700;font-size:0.95rem;color:var(--c-text);">ASL Connect — Gallaudet University</p>
               <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,201,167,0.12);color:var(--c-teal);padding:0.15rem 0.55rem;border-radius:100px;">FREE</span>
             </div>
-            <a href="https://aslconnect.gallaudet.edu" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">aslconnect.gallaudet.edu</a>
+            <a href="https://aslconnect.gallaudet.edu" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">aslconnect.gallaudet.edu<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">Free online ASL and Deaf Studies resources from Gallaudet University — one of the world's leading universities for the Deaf community.</p>
           </div>
 
           <div style="background:var(--c-surface);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.25rem 1.5rem;">
             <p style="margin:0 0 0.25rem;font-weight:700;font-size:0.95rem;color:var(--c-text);">ASL Deafined</p>
-            <a href="https://asldeafined.com" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">asldeafined.com</a>
+            <a href="https://asldeafined.com" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--c-teal);text-decoration:none;display:block;margin-bottom:0.5rem;">asldeafined.com<span class="sr-only"> (opens in a new tab)</span></a>
             <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">Subscription-based site with ASL video lessons taught entirely by Deaf professionals. Designed for parents of deaf children and anyone wishing to learn ASL.</p>
           </div>
 
@@ -652,9 +685,9 @@
           <p style="margin:0;font-size:0.85rem;color:var(--c-muted);line-height:1.65;">All babies confirmed with hearing loss should begin intervention services before 6 months of age.</p>
         </div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li style="font-size:0.85rem;line-height:1.6;"><a href="https://ehdi-pals.org" target="_blank" rel="noopener" style="color:var(--c-teal);text-decoration:none;font-weight:600;">EHDI-PALS</a> <span style="color:var(--c-muted);">— Find pediatric audiologists near you</span></li>
-          <li style="font-size:0.85rem;line-height:1.6;"><a href="https://cdc.gov/hearing-loss-children-guide" target="_blank" rel="noopener" style="color:var(--c-teal);text-decoration:none;font-weight:600;">CDC Parent Guide</a> <span style="color:var(--c-muted);">— Language, support groups, and intervention</span></li>
-          <li style="font-size:0.85rem;line-height:1.6;"><a href="https://babyhearing.org" target="_blank" rel="noopener" style="color:var(--c-teal);text-decoration:none;font-weight:600;">My Baby's Hearing</a> <span style="color:var(--c-muted);">— Step-by-step guide after a failed screening</span></li>
+          <li style="font-size:0.85rem;line-height:1.6;"><a href="https://ehdi-pals.org" target="_blank" rel="noopener" style="color:var(--c-teal);text-decoration:none;font-weight:600;">EHDI-PALS<span class="sr-only"> (opens in a new tab)</span></a> <span style="color:var(--c-muted);">— Find pediatric audiologists near you</span></li>
+          <li style="font-size:0.85rem;line-height:1.6;"><a href="https://cdc.gov/hearing-loss-children-guide" target="_blank" rel="noopener" style="color:var(--c-teal);text-decoration:none;font-weight:600;">CDC Parent Guide<span class="sr-only"> (opens in a new tab)</span></a> <span style="color:var(--c-muted);">— Language, support groups, and intervention</span></li>
+          <li style="font-size:0.85rem;line-height:1.6;"><a href="https://babyhearing.org" target="_blank" rel="noopener" style="color:var(--c-teal);text-decoration:none;font-weight:600;">My Baby's Hearing<span class="sr-only"> (opens in a new tab)</span></a> <span style="color:var(--c-muted);">— Step-by-step guide after a failed screening</span></li>
           <li style="font-size:0.85rem;line-height:1.6;color:var(--c-muted);">Your <strong style="color:var(--c-text);">state's Early Intervention program</strong> — free for every family; ask your pediatrician for a referral. You can request ASL instruction through this program.</li>
         </ul>
       </div>
@@ -711,6 +744,8 @@
       </a>
     </div>
   </div>
+
+  </main>
 
   <!-- ── FOOTER ── -->
   <footer role="contentinfo">

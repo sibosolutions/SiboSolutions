@@ -351,6 +351,77 @@
 
     .asl-content .section-label { color: var(--c-rose); }
 
+    /* ── Fingerspelling Carousel ── */
+    .fingerspell-carousel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--c-elevated);
+      border: 1px solid rgba(232,80,122,0.2);
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .fingerspell-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 160px;
+      height: 190px;
+      transition: opacity 0.22s cubic-bezier(0.34,1.56,0.64,1), transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .fingerspell-stage.is-fading {
+      opacity: 0;
+      transform: scale(0.9) translateY(6px);
+    }
+    .fingerspell-frame {
+      width: 132px;
+      height: 132px;
+      background: var(--c-text);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .fingerspell-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .fingerspell-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--c-rose);
+    }
+    .fingerspell-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,80,122,0.12);
+      color: var(--c-rose);
+      border: 1px solid rgba(232,80,122,0.25);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .fingerspell-toggle:hover {
+      background: rgba(232,80,122,0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232,80,122,0.2);
+    }
+    .fingerspell-toggle:focus-visible { outline: 2px solid var(--c-amber); outline-offset: 4px; }
+    .fingerspell-toggle:active { transform: translateY(0); }
+    .fingerspell-toggle svg { width: 16px; height: 16px; }
+    .fingerspell-toggle .icon-play { display: none; }
+    .fingerspell-toggle.is-paused .icon-pause { display: none; }
+    .fingerspell-toggle.is-paused .icon-play { display: block; }
+
     /* ── Video Library ── */
     .video-embed {
       position: relative;
@@ -565,16 +636,25 @@
         </a>
       </div>
 
-      <!-- ASL Alphabet Chart -->
+      <!-- ASL Alphabet Carousel -->
       <div>
         <p style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-rose);font-weight:700;margin-bottom:1rem;">ASL Fingerspelling Alphabet</p>
-        <img
-          src="https://deafchildren.org/wp-content/uploads/2019/06/ASL-Alphabet-ASDC-web.jpg"
-          alt="ASL Fingerspelling Alphabet chart showing hand signs for all 26 letters, provided by the American Society for Deaf Children"
-          style="width:100%;border-radius:16px;border:1px solid rgba(232,80,122,0.2);box-shadow:0 8px 32px rgba(0,0,0,0.4);display:block;"
-        />
+        <div class="fingerspell-carousel">
+          <p class="sr-only">Animated illustration cycling through the ASL fingerspelling alphabet from A to Z, one letter at a time. Use the button below to pause or resume the animation.</p>
+          <div class="fingerspell-stage" aria-hidden="true">
+            <div class="fingerspell-frame">
+              <img class="fingerspell-img" src="" alt="" />
+            </div>
+            <div class="fingerspell-letter">A</div>
+          </div>
+          <button type="button" class="fingerspell-toggle">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l14 8-14 8V4z"/></svg>
+            <span class="fingerspell-toggle-label">Pause animation</span>
+          </button>
+        </div>
         <p style="color:var(--c-muted);font-size:0.75rem;margin-top:0.75rem;line-height:1.6;">
-          Chart courtesy of the <a href="https://deafchildren.org" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">American Society for Deaf Children<span class="sr-only"> (opens in a new tab)</span></a> — free for educational use.
+          Letter illustrations courtesy of <a href="https://commons.wikimedia.org/wiki/Category:ASL_letters" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">Wikimedia Commons<span class="sr-only"> (opens in a new tab)</span></a> (wpclipart.com) — public domain.
         </p>
       </div>
     </div>
@@ -800,5 +880,6 @@
     </div>
   </footer>
 
+  <script src="asl-signs.js"></script>
 </body>
 </html>

@@ -443,6 +443,7 @@
     .schools-map .leaflet-popup-content { font-family: 'Inter', sans-serif; font-size: 0.85rem; margin: 0.75rem 1rem; }
     .schools-map .leaflet-popup-content strong { color: var(--c-rose); }
     .schools-map .leaflet-popup-content a { color: var(--c-teal); font-weight: 600; }
+    .schools-map .leaflet-popup-content em { color: var(--c-muted); font-style: normal; }
     .schools-map .leaflet-tooltip.school-tooltip {
       background: var(--c-elevated);
       color: var(--c-text);
@@ -494,8 +495,9 @@
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .schools-list .school-name:hover { color: var(--c-rose); text-decoration: underline; }
-    .schools-list .school-name:focus-visible { outline: 2px solid var(--c-amber); outline-offset: 2px; border-radius: 2px; }
+    .schools-list a.school-name:hover { color: var(--c-rose); text-decoration: underline; }
+    .schools-list a.school-name:focus-visible { outline: 2px solid var(--c-amber); outline-offset: 2px; border-radius: 2px; }
+    .schools-list .school-name-plain { opacity: 0.85; }
     .schools-list .school-city { color: var(--c-muted); }
 
     /* ── Video Library ── */
@@ -907,20 +909,20 @@
 
   <!-- ── DEAF SCHOOLS MAP ── -->
   <section id="schools-map" aria-labelledby="schools-map-heading">
-    <h2 class="section-title" id="schools-map-heading">Schools for the Deaf<br>Across the U.S.</h2>
-    <p class="section-desc">Many states operate a dedicated school for deaf and hard-of-hearing students, often free of charge for residents. Explore the map or browse the full list below to find one near you.</p>
+    <h2 class="section-title" id="schools-map-heading">Schools for the Deaf<br>Around the World</h2>
+    <p class="section-desc">Many U.S. states operate a dedicated school for deaf and hard-of-hearing students, often free of charge for residents — and dozens of countries around the world have their own long-standing schools too. Explore the map or browse the full list below.</p>
 
-    <p class="sr-only">An interactive map of the United States with pins marking schools for the deaf follows. A complete text list of every school and its city is provided below the map.</p>
+    <p class="sr-only">An interactive world map with pins marking schools for the deaf follows. A complete text list of every school and its city is provided below the map.</p>
     <div id="deaf-schools-map" class="schools-map"></div>
 
     <p style="color:var(--c-muted);font-size:0.75rem;margin-top:0.75rem;line-height:1.6;">
       Map tiles by <a href="https://www.esri.com" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">Esri<span class="sr-only"> (opens in a new tab)</span></a>.
     </p>
 
-    <ul class="schools-list" id="schools-list" aria-label="Full list of schools for the deaf by state"></ul>
+    <ul class="schools-list" id="schools-list" aria-label="Full list of schools for the deaf by country"></ul>
 
     <p style="color:var(--c-muted);font-size:0.8rem;margin-top:1.5rem;line-height:1.7;max-width:820px;">
-      This list favors long-standing, publicly operated state schools and a few well-known specialized programs — it isn't guaranteed to be complete or fully current, since schools occasionally open, close, or relocate. Please verify details directly with a school before visiting or applying. See the <a href="https://en.wikipedia.org/wiki/Category:Schools_for_the_deaf_in_the_United_States" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">Wikipedia category<span class="sr-only"> (opens in a new tab)</span></a> for a broader listing, including private and specialized programs.
+      The U.S. list favors long-standing, publicly operated state schools; the international list is a representative sample rather than an exhaustive count. Most schools link to a confirmed official website — a few don't have one we could find and are listed without a link. Neither list is guaranteed to be complete or fully current, since schools occasionally open, close, or relocate. Please verify details directly with a school before visiting or applying. See the <a href="https://en.wikipedia.org/wiki/Category:Schools_for_the_deaf_in_the_United_States" target="_blank" rel="noopener" style="color:var(--c-rose);text-decoration:none;">Wikipedia category<span class="sr-only"> (opens in a new tab)</span></a> for a broader U.S. listing, including private and specialized programs.
     </p>
   </section>
 

@@ -414,6 +414,129 @@
       margin: 0;
     }
 
+    /* ── Q&A ── */
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .faq-item {
+      background: var(--c-surface);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item[open] { border-color: rgba(0,201,167,0.3); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.15rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--c-text);
+      transition: color 0.2s ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::marker { content: ""; }
+    .faq-item summary:hover { color: var(--c-teal); }
+    .faq-item summary:focus-visible { outline: 2px solid var(--c-amber); outline-offset: -2px; border-radius: 8px; }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0,201,167,0.12);
+      color: var(--c-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 1.4rem 1.2rem;
+      color: var(--c-muted);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .ask-form {
+      background: var(--c-elevated);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2.25rem;
+      position: sticky;
+      top: 6.5rem;
+    }
+    .ask-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .ask-form p {
+      color: var(--c-muted);
+      font-size: 0.85rem;
+      line-height: 1.65;
+      margin: 0 0 1.5rem;
+    }
+    .ask-form .form-row { margin-bottom: 1.1rem; }
+    .ask-form label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      margin-bottom: 0.45rem;
+    }
+    .ask-form input,
+    .ask-form textarea {
+      width: 100%;
+      background: var(--c-surface);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      color: var(--c-text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .ask-form input::placeholder,
+    .ask-form textarea::placeholder { color: rgba(236,240,255,0.35); }
+    .ask-form textarea { min-height: 110px; resize: vertical; }
+    .ask-form input:focus,
+    .ask-form textarea:focus {
+      outline: none;
+      border-color: var(--c-teal);
+      box-shadow: 0 0 0 3px rgba(0,201,167,0.15);
+    }
+    .ask-form .btn-primary { width: 100%; justify-content: center; display: inline-flex; }
+    .ask-form .form-note {
+      font-size: 0.75rem;
+      color: var(--c-muted);
+      margin: 0.9rem 0 0;
+      line-height: 1.6;
+    }
+    @media (max-width: 860px) {
+      .faq-layout { grid-template-columns: 1fr; }
+      .ask-form { position: static; }
+    }
+
     /* ── Contact CTA ── */
     .contact-band {
       background: var(--c-surface);
@@ -516,6 +639,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#process">How It Works</a></li>
+        <li><a href="#faq">Q&amp;A</a></li>
         <li><a href="asl.html">ASL</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -631,6 +755,65 @@
     </div>
   </section>
 
+  <!-- ── Q&A ── -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="section-label" style="color: var(--c-teal);">Quick Answers</div>
+    <h2 class="section-title" id="faq-heading">Tech Questions, Answered</h2>
+    <p class="section-desc">Common questions we hear a lot — click one to see the answer. Don't see yours? Ask us directly.</p>
+
+    <div class="faq-layout">
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>My Wi-Fi keeps dropping or feels slow — what should I check first?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">Restart your router and modem (unplug both for about 30 seconds), move closer to the router, and check how many devices are connected at once. If it's still spotty after that, it might be time for a quick network tune-up — that's exactly what we help with.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How often should I update my software and devices?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">As soon as updates are available, especially for your operating system, browser, and antivirus software. Updates usually include security fixes, not just new features. Turning on automatic updates is the easiest way to stay current without thinking about it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How can I tell if an email is a phishing scam?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">Watch for urgent language, requests for personal info or payment, sender addresses that don't quite match, and links that don't lead where they claim to. When in doubt, don't click — contact the company directly using a number or site you already trust.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What's the best way to back up my photos and files?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">Follow the "3-2-1" rule: three copies of your data, on two different types of storage, with one copy off-site. An external hard drive plus a cloud service like iCloud, Google Photos, or OneDrive covers most households well.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it safe to use public Wi-Fi?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">Avoid logging into banking or other sensitive accounts on public Wi-Fi when you can help it. If you need to, use a VPN, and stick to networks that require a password rather than fully open ones.</p>
+        </details>
+        <details class="faq-item">
+          <summary>My computer is running really slow — what can I do?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">Restart it first — it genuinely helps more often than you'd think. Then check for pending updates, uninstall programs you don't use, and see how much storage space is left, since a nearly-full drive slows everything down. Still sluggish after that? There may be something deeper going on, and that's where we come in.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I really need antivirus software?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <p class="faq-answer">Yes, even on Mac. Built-in protections help, but a reputable antivirus adds another layer — especially for catching phishing links and malicious downloads before they cause damage.</p>
+        </details>
+      </div>
+
+      <form class="ask-form" id="ask-form">
+        <h3>Still have a question?</h3>
+        <p>Type it below and we'll get back to you directly — this opens your email app with your message ready to send.</p>
+        <div class="form-row">
+          <label for="ask-name">Your name</label>
+          <input type="text" id="ask-name" name="name" placeholder="Jane Doe" required />
+        </div>
+        <div class="form-row">
+          <label for="ask-email">Your email</label>
+          <input type="email" id="ask-email" name="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-row">
+          <label for="ask-question">Your question</label>
+          <textarea id="ask-question" name="question" placeholder="What's going on with your tech?" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Question</button>
+        <p class="form-note">We'll reply to the email address you provide. Prefer to just email us? Reach out anytime at <a href="mailto:sibosolutionsllc@gmail.com" style="color:var(--c-teal);text-decoration:none;">sibosolutionsllc@gmail.com</a>.</p>
+      </form>
+    </div>
+  </section>
+
   <!-- ── WHY US ── -->
   <section id="about" aria-labelledby="about-heading">
     <div class="section-label" style="color: var(--c-amber);">Why SiboSolutions</div>
@@ -681,6 +864,7 @@
       <p class="footer-copy">&copy; 2026 SiboSolutions LLC. All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
+        <a href="#faq">Q&amp;A</a>
         <a href="asl.html">ASL</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -688,5 +872,20 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const form = document.getElementById('ask-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const question = form.question.value.trim();
+        const subject = `Tech question from ${name}`;
+        const body = `${question}\n\n— ${name} (${email})`;
+        window.location.href = `mailto:sibosolutionsllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    })();
+  </script>
 </body>
 </html>
